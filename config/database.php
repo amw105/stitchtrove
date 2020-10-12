@@ -74,7 +74,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => $HEROKU_URL,
+            'url' => $url,
             'host'     => $host,
             'database' => $database,
             'username' => $username,

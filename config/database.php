@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+$HEROKU_URL=parse_url('postgres://oxisjpxxilklvq:f68363010e1982d62a0b7867666934f624c958f1c8e243341e48b5e122323762@ec2-52-20-160-44.compute-1.amazonaws.com:5432/dbnq3bgrd8a9s1,');
+
 return [
 
     /*
@@ -16,6 +18,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    'prod' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,12 +68,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => $HEROKU_URL,
+            'host' => $HEROKU_URl['host'],
+            'port' => $HEROKU_URl['port'],
+            'database' => ltrim($HEROKU_URl['path'], "/"),
+            'username' => $HEROKU_URl['user'],
+            'password' => $HEROKU_URl['pass'],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

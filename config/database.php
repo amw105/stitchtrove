@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$HEROKU_URL=parse_url('postgres://oxisjpxxilklvq:f68363010e1982d62a0b7867666934f624c958f1c8e243341e48b5e122323762@ec2-52-20-160-44.compute-1.amazonaws.com:5432/dbnq3bgrd8a9s1,');
+$HEROKU_URL=parse_url(getenv("DATABASE_URL"));
 
 return [
 

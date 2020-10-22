@@ -2,12 +2,21 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(getenv("DATABASE_URL"));
+if (env('APP_ENV') === 'production') {
+    $url = parse_url(getenv("DATABASE_URL"));
+    $host = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
+}
+else{
+    $url = parse_url(getenv("DATABASE_URL"));
+    $host = '';
+    $username = '';
+    $password = '';
+    $database = '';
+}
 
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
 
 
 return [
@@ -74,11 +83,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => $url,
-            'host'     => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'url' => env('DATABASE_URL', $url),
+            'host'     => env('DB_HOST', $host),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_DATABASE', $username),
+            'password' => env('DB_DATABASE', $password),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

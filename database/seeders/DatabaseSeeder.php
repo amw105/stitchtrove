@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        if (App::environment() === 'production'){
-            exit('Nope, you definitely cannot do this here!');
-        }
+        // if (App::environment() === 'production'){
+        //     exit('Nope, you definitely cannot do this here!');
+        // }
 
 
         $tables =[

@@ -25,12 +25,12 @@ class FindController extends Controller
         $all_projects = Project::all('id', 'threads');
         $fullarray = [];
         $nearlyarray = [];
-        
-
+        // dd($all_projects);
         foreach ($all_projects as $project){
             $project_floss = str_replace('|',',', $project['threads']);
-            
             $project_floss = json_decode($project_floss);
+            //dd($floss_array);
+            // dd($project_floss);
             $matches = array_intersect($floss_array,$project_floss);
             $a = round(count($matches));
             $b = count($project_floss);

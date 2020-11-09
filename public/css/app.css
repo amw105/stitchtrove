@@ -10959,7 +10959,7 @@ a.actionbutton:hover {
 }
 
 hr {
-  border-top: 1px dashed #1d3557;
+  border-top: 1px dashed white;
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
@@ -10971,9 +10971,9 @@ hr:after {
   top: -15px;
   left: 40px;
   padding: 0 3px;
-  background: white;
+  background: transparent;
   font-size: 18px;
-  color: #1d3557;
+  color: white;
 }
 
 .bold {

@@ -31,14 +31,14 @@ return [
      * List of disk names that you want to use
      * (from config/filesystems)
      */
-    'diskList' => ['public', 's3'],
+    'diskList' => ['public', 's3', 'sftp'],
 
     /**
      * Default disk for left manager
      *
      * null - auto select the first disk in the disk list
      */
-    'leftDisk' => 's3',
+    'leftDisk' => 'sftp',
 
     /**
      * Default disk for right manager

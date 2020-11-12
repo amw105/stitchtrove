@@ -26,3 +26,6 @@ Route::post('/compare-patterns', [App\Http\Controllers\FindController::class, 'c
 
 
 // Route::get('/projects-import', [App\Http\Controllers\ProjectController::class, 'import']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
+});
